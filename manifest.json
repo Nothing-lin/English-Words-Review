@@ -1,15 +1,29 @@
 {
-  "name": "HelloChrome",
+  "name": "亮词生库",
   "version": "1.0.0",
   "manifest_version": 2,
   "icons": {
     "48": "images/logo.png",
     "128": "images/logo.png"
   },
-  "description": "我的第一个chrome插件：Hello，Chrome",
+  "description": "这是一款单词高亮复习插件，能够在页面文章中高亮显示我们的生词库中的生词",
+
   "browser_action": {
-    "default_title": "查看",
+    "default_title": "亮词生库",
     "default_icon": "images/logo.png",
     "default_popup": "popup/popup.html"
-  }
+  },
+  "content_scripts": [{
+    "all_frames": true,
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": [
+      "resource/lib/jquery-3.3.1.js",
+      "main_script/main_script.js"
+    ]
+  }],
+  "permissions": [
+    "storage"
+  ]
 }
