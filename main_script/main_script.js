@@ -58,8 +58,12 @@ function mygoodfilter(node) {
     "TH",
     "CITE",
   ];
+  //如果匹配到上面的节点名的话就进入if语句中执行NodeFilter.FILTER_ACCEPT
+  //如果没有的话就执行NodeFilter.FILTER_SKIP
+  //区别在于 n = walk.nextNode(); 不会去识别 NodeFilter.FILTER_SKIP的节点
   if (good_tags_list.indexOf(node.parentNode.tagName) !== -1) {
     return NodeFilter.FILTER_ACCEPT;
+  } else {
+    return NodeFilter.FILTER_SKIP;
   }
-  return NodeFilter.FILTER_SKIP;
 }
