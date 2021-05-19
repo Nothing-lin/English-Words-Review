@@ -19,12 +19,12 @@ function load_english_words() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       //info获取xml文件中的全部内容，并保存xml的全部内容和格式
       var info = xhr.responseXML;
-      var words = [];
+      var words = {};
       var words_count = info.getElementsByTagName("word").length;
       //遍历循环word标签内容到数组words中
       for (var i = 0; i < words_count; i++) {
         word = info.getElementsByTagName("word")[i].textContent;
-        words[i] = word;
+        words[word] = word;
       }
       // var words = info.getElementsByTagName("word")[1].textContent;
       console.log(words);
