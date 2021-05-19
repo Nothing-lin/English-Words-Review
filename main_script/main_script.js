@@ -6,6 +6,10 @@ $(function() {
 //初始化函数init
 function init() {
   console.log(textNodesUnder(document.body))
+  //chrome从本地缓存中获取对应的单词数据，然后通过控制台进行输出
+  chrome.storage.local.get('words',function(words){
+    console.log(words);
+  })
 }
 
 

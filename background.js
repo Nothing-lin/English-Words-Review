@@ -14,7 +14,7 @@ function load_english_words() {
   var xhr = new XMLHttpRequest();
   //调用xml单词文件
   xhr.open('GET', words_file_path, true);
-//如果成功调用xhr.open()函数的话就执行下面的函数
+  //如果成功调用xhr.open()函数的话就执行下面的函数
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       //info获取xml文件中的全部内容，并保存xml的全部内容和格式
@@ -28,6 +28,14 @@ function load_english_words() {
       }
       // var words = info.getElementsByTagName("word")[1].textContent;
       console.log(words);
+      //通过chrome缓存机制，将xml生词文件中的word单词存到本地中
+      chrome.storage.local.set({
+        words: words
+      }, function() {
+        //如果本地保存成功的话，就在background控制台中输出这段话
+        console.log('保存成功');
+      })
+
     }
   }
 
