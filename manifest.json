@@ -8,6 +8,9 @@
   },
   "description": "这是一款单词高亮复习插件，能够在页面文章中高亮显示我们的生词库中的生词",
 
+"background":{
+  "scripts":["background.js"]
+},
   "browser_action": {
     "default_title": "亮词生库",
     "default_icon": "images/logo.png",
