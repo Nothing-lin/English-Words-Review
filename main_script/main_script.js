@@ -18,7 +18,7 @@ function init() {
 
 
     //捕获dom中的生词节点并且对其进行高亮显示
-    do_hightlight(textNodeUnder(document.body));
+    do_hightlight(textNodesUnder(document.body));
   })
 
 }
