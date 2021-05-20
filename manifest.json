@@ -24,6 +24,9 @@
     "js": [
       "resource/lib/jquery-3.3.1.js",
       "main_script/main_script.js"
+    ],
+    "css": [
+      "resource/content_hightlight.css"
     ]
   }],
   "permissions": [
