@@ -5,8 +5,16 @@ initialize_extension();
 function initialize_extension() {
   //获取本地xml文件下的英文单词集合
   load_english_words();
-}
 
+  //定义右键选中文本后，添加到生词库的右键菜单项
+  chrome.contextMenus.create({
+    "title": "添加为生词",
+    "contexts": ['selection'],
+    "id": "add_select",
+    "onclick": test
+  })
+}
+//---------------------------------------------------------------------------------
 function load_english_words() {
   //获取单词样本xml文件的地址
   words_file_path = chrome.extension.getURL("resource/words_demo.xml");
@@ -41,4 +49,10 @@ function load_english_words() {
 
   xhr.send();
 
+}
+//---------------------------------------------------------------------------------
+
+function test(info, tab) {
+  var word = info.selectionText;
+  console.log(word);
 }
